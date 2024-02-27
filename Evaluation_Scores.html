@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participant Scores</title>
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<canvas id="participantChart" width="400" height="200"></canvas>
+
+<script>
+// Data
+var participants = ["Diyora", "Rustam", "Temurbek", "Javlon"];
+var pipelineScores = [8, 6, 7, 6];
+var programmingScores = [7, 8, 6, 6];
+var troubleshootingScores = [6, 8, 5, 5];
+var problemAnalysisScores = [8, 6, 6, 6];
+var creativityScores = [7, 5, 5, 5];
+var practicalApplicationScores = [7, 8, 5, 5];
+var summaryScores = [43, 41, 34, 33];
+
+// Create the chart
+var ctx = document.getElementById('participantChart').getContext('2d');
+var participantChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: participants,
+        datasets: [
+            {
+                label: 'Pipeline understanding',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                data: pipelineScores
+            },
+            {
+                label: 'Programming ability',
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                data: programmingScores
+            },
+            {
+                label: 'Troubleshooting ability',
+                backgroundColor: 'rgba(255, 206, 86, 0.5)',
+                borderColor: 'rgba(255, 206, 86, 1)',
+                borderWidth: 1,
+                data: troubleshootingScores
+            },
+            {
+                label: 'Problem analysis ability',
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                data: problemAnalysisScores
+            },
+            {
+                label: 'Creativity',
+                backgroundColor: 'rgba(153, 102, 255, 0.5)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1,
+                data: creativityScores
+            },
+            {
+                label: 'Practical application skills',
+                backgroundColor: 'rgba(255, 159, 64, 0.5)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1,
+                data: practicalApplicationScores
+            },
+            {
+                label: 'Summary',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                borderColor: 'rgba(0, 0, 0, 1)',
+                borderWidth: 1,
+                data: summaryScores
+            }
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+</body>
+</html>
